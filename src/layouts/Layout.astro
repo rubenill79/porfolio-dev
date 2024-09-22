@@ -1,15 +1,12 @@
 ---
 import Header from "../components/Header.astro";
+import Sidebar from "../components/Sidebar.astro";
 
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
+const {language, title} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={language}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -19,25 +16,17 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<div class="drawer">
-			<input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+		<div class="drawer lg:drawer-open">
+			<input id="my-drawer" type="checkbox" class="drawer-toggle" />
 			<div class="drawer-content flex flex-col">
 				<Header />
-				<main>
-					<slot />
-				</main>
+				<div class="md:flex md:justify-center">
+					<main class="p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
+						<slot />
+					</main>
+				</div>
 			</div>
-			<div class="drawer-side">
-				<label
-					for="my-drawer-3"
-					aria-label="close sidebar"
-					class="drawer-overlay"></label>
-				<ul class="menu bg-base-200 min-h-full w-80 p-4">
-					<!-- Sidebar content here -->
-					<li><a>Sidebar Item 1</a></li>
-					<li><a>Sidebar Item 2</a></li>
-				</ul>
-			</div>
+			<Sidebar />
 		</div>
 	</body>
 </html>
