@@ -1,19 +1,18 @@
 ---
+import { getLangFromUrl } from '../i18n/utils';
+import Base from "../layouts/Base.astro";
 import Header from "../components/Header.astro";
 import Sidebar from "../components/Sidebar.astro";
+import Footer from "../components/Footer.astro";
 
-const {language, title} = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const {title} = Astro.props;
 ---
 
 <!doctype html>
-<html lang={language}>
+<html lang={lang}>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<Base title={title} description={"TODO"} />
 	</head>
 	<body>
 		<div class="drawer lg:drawer-open">
@@ -25,6 +24,7 @@ const {language, title} = Astro.props;
 						<slot />
 					</main>
 				</div>
+				<Footer />
 			</div>
 			<Sidebar />
 		</div>

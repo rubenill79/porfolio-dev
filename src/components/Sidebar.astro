@@ -1,5 +1,10 @@
 ---
 import { Image } from "astro:assets";
+
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div class="drawer-side z-40">
@@ -7,13 +12,32 @@ import { Image } from "astro:assets";
     <aside class="px-2 pt-2 h-auto min-h-full w-[19rem] bg-base-200 text-base-content flex flex-col">
       <div class="w-fit mx-auto mt-5 mb-6">
         <a href="/">
-          <div class="avatar transition ease-in-out hover:scale-[102%] block m-auto">
+          <div class="avatar transition ease-in-out hover:scale-[105%] block m-auto">
             <div class="w-[8.5rem]">
               <Image class="mask mask-circle" format="webp" width={400} height={400} src="/avatar.webp" alt="Profile image" />
             </div>
           </div>
         </a>
       </div>
+      <!-- 
+      <ul>
+        <li>
+            <a href={`/${lang}/home/`}>
+              {t('nav.home')}
+            </a>
+        </li>
+        <li>
+            <a href={`/${lang}/about/`}>
+              {t('nav.about')}
+            </a>
+        </li>
+        <li>
+            <a href={`/${lang}/projects/`}>
+              {t('nav.projects')}
+            </a>
+        </li>
+      </ul>
+       -->
       <!-- <SideBarMenu sideBarActiveItemID={sideBarActiveItemID} />  -->
       <!-- <SideBarFooter />  -->
     </aside>
