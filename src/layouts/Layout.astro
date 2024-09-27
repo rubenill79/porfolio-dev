@@ -6,7 +6,7 @@ import Sidebar from "../components/Sidebar.astro";
 import Footer from "../components/Footer.astro";
 
 const lang = getLangFromUrl(Astro.url);
-const {title} = Astro.props;
+const {title, sideBarActiveItemID} = Astro.props;
 ---
 
 <!doctype html>
@@ -14,19 +14,19 @@ const {title} = Astro.props;
 	<head>
 		<Base title={title} description={"TODO"} />
 	</head>
-	<body>
-		<div class="drawer lg:drawer-open">
+	<body class="flex flex-col min-h-screen">
+		<div class="drawer lg:drawer-open flex-grow">
 			<input id="my-drawer" type="checkbox" class="drawer-toggle" />
 			<div class="drawer-content flex flex-col">
 				<Header />
-				<div class="md:flex md:justify-center">
+				<div class="md:flex md:justify-center flex-grow">
 					<main class="p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
 						<slot />
 					</main>
 				</div>
-				<Footer />
+				<Footer class="mt-auto" />
 			</div>
-			<Sidebar />
+			<Sidebar sideBarActiveItemID={sideBarActiveItemID} />
 		</div>
 	</body>
 </html>

@@ -1,10 +1,8 @@
 ---
 import { Image } from "astro:assets";
-
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+import SidebarFooter from "./SidebarFooter.astro";
+import SideBarMenu from "./SidebarMenu.astro";
+const { sideBarActiveItemID } = Astro.props;
 ---
 
 <div class="drawer-side z-40">
@@ -19,26 +17,7 @@ const t = useTranslations(lang);
           </div>
         </a>
       </div>
-      <!-- 
-      <ul>
-        <li>
-            <a href={`/${lang}/home/`}>
-              {t('nav.home')}
-            </a>
-        </li>
-        <li>
-            <a href={`/${lang}/about/`}>
-              {t('nav.about')}
-            </a>
-        </li>
-        <li>
-            <a href={`/${lang}/projects/`}>
-              {t('nav.projects')}
-            </a>
-        </li>
-      </ul>
-       -->
-      <!-- <SideBarMenu sideBarActiveItemID={sideBarActiveItemID} />  -->
-      <!-- <SideBarFooter />  -->
+      <SideBarMenu sideBarActiveItemID={sideBarActiveItemID} />
+      <SidebarFooter />
     </aside>
   </div>
