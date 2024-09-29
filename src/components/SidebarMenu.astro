@@ -9,21 +9,88 @@ const t = useTranslations(lang);
 ---
 
 <ul class="menu grow shrink menu-md overflow-y-auto">
-    <li><a class="py-3 text-base" id="home" href={`/${lang}/`}>{t('nav.home')}</a></li>
-    <li><a class="py-3 text-base" id="projects" href={`/${lang}/about/`}>{t('nav.about')}</a></li>
-    <li><a class="py-3 text-base" id="services" href={`/${lang}/projects/`}>{t('nav.projects')}</a></li>
-    <li><a class="py-3 text-base" id="cv"href={`/${lang}/cv/`}>{t('nav.cv')}</a></li>
     <li>
-        <a
-            class="py-3 text-base"
-            href="mailto:contact.rubenill79@hotmail.com"
-            target="_blank"
-            referrerpolicy="no-referrer-when-downgrade">{t('nav.contact')}</a
-        >
+        <a class="py-3 text-base" id="home" href={`/${lang}/`}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            style="fill: currentColor;transform: ;msFilter:;"
+            ><path
+                d="M5 22h14a2 2 0 0 0 2-2v-9a1 1 0 0 0-.29-.71l-8-8a1 1 0 0 0-1.41 0l-8 8A1 1 0 0 0 3 11v9a2 2 0 0 0 2 2zm5-2v-5h4v5zm-5-8.59 7-7 7 7V20h-3v-5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v5H5z"
+            ></path>
+        </svg>
+        {t('nav.home')}</a></li>
+    <li>
+        <a class="py-3 text-base" id="about" href={`/${lang}/about/`}>
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            style="fill: currentColor;transform: ;msFilter:;"
+            ><path
+                d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"
+            ></path>
+        </svg>
+        {t('nav.about')}</a></li>
+    <li>
+        <a class="py-3 text-base" id="projects" href={`/${lang}/projects/`}>
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            style="fill: currentColor;transform: ;msFilter:;"
+            ><path
+                d="M2.165 19.551c.186.28.499.449.835.449h15c.4 0 .762-.238.919-.606l3-7A.998.998 0 0 0 21 11h-1V7c0-1.103-.897-2-2-2h-6.1L9.616 3.213A.997.997 0 0 0 9 3H4c-1.103 0-2 .897-2 2v14h.007a1 1 0 0 0 .158.551zM17.341 18H4.517l2.143-5h12.824l-2.143 5zM18 7v4H6c-.4 0-.762.238-.919.606L4 14.129V7h14z"
+            ></path>
+        </svg>
+        {t('nav.projects')}</a></li>
+    <li>
+        <a class="py-3 text-base" id="stack" href={`/${lang}/stack/`}>
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            style="fill: currentColor;transform: ;msFilter:;"
+            ><path
+                d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"
+            ></path>
+        </svg>
+        {t('nav.stack')}</a></li>
+    <li>
+        <a class="py-3 text-base" id="cv"href={`/${lang}/cv/`}>
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            style="fill: currentColor;transform: ;msFilter:;"
+            ><path 
+                d="M19.903 8.586a.997.997 0 0 0-.196-.293l-6-6a.997.997 0 0 0-.293-.196c-.03-.014-.062-.022-.094-.033a.991.991 0 0 0-.259-.051C13.04 2.011 13.021 2 13 2H6c-1.103 0-2 .897-2 2v16c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V9c0-.021-.011-.04-.013-.062a.952.952 0 0 0-.051-.259c-.01-.032-.019-.063-.033-.093zM16.586 8H14V5.414L16.586 8zM6 20V4h6v5a1 1 0 0 0 1 1h5l.002 10H6z"></path>
+            <path d="M8 12h8v2H8zm0 4h8v2H8zm0-8h2v2H8z"></path>
+        </svg>
+        {t('nav.cv')}</a></li>
+    <li>
+        <a class="py-3 text-base" href="mailto:contact.rubenill79@hotmail.com" target="_blank" referrerpolicy="no-referrer-when-downgrade">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            style="fill: currentColor;transform: ;msFilter:;"
+            ><path 
+                d="M20 4H6c-1.103 0-2 .897-2 2v5h2V8l6.4 4.8a1.001 1.001 0 0 0 1.2 0L20 8v9h-8v2h8c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm-7 6.75L6.666 6h12.668L13 10.75z"></path>
+            <path d="M2 12h7v2H2zm2 3h6v2H4zm3 3h4v2H7z"></path>
+        </svg>
+        {t('nav.contact')}</a>
     </li>
 </ul>
 
-<script define:vars={{ sideBarActiveItemID: sideBarActiveItemID, activeClass: activeClass }}>
+<script is:inline define:vars={{ sideBarActiveItemID: sideBarActiveItemID, activeClass: activeClass }}>
 const activeItemElem = document.getElementById(sideBarActiveItemID);
 activeItemElem && activeItemElem.classList.add(activeClass);
 </script>

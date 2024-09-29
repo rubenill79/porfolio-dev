@@ -2,16 +2,62 @@
 export interface Props {
     title: string;
     description: string;
+    canonical?: string;
+    image?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, canonical, image = '/favicon.svg' } = Astro.props;
+
+const determineCanonicalURL = () => {
+	if (Astro.url.host.includes("localhost")) return "http://localhost:4321"
+	return canonical || Astro.url.pathname
+}
+
+const canonicalURL = new URL(determineCanonicalURL(), Astro.site)
 ---
-<meta charset="UTF-8" />
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
+
+<link rel="canonical" href={canonicalURL} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+
+<meta name="keywords" content="Rubén Lázaro, personal portfolio, software developer, web development, full-stack developer, front-end projects, back-end projects, programming portfolio, web technologies, JavaScript, Angular, Astro, HTML, CSS, higher technician in multi-platform application development, developer projects, tech stack, coding portfolio" />
+<meta name="keywords" content="Rubén Lázaro, portfolio personal, desarrollador de software, desarrollo web, desarrollador full-stack, proyectos de front-end, proyectos de back-end, portafolio de programación, tecnologías web, JavaScript, Angular, Astro, HTML, CSS, tecnico superior en desarrollo de aplicaciones multiplataforma, proyectos de desarrollador, stack tecnológico, portafolio de programación" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:site_name" content="Porfolio Rubén Lázaro" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<!-- Mobile Optimization -->
+<meta name="mobile-web-app-capable" content="yes" />
+
+<!-- Author Information -->
+<meta name="author" content="Rubén Lázaro" />
+<meta name="publisher" content="Rubén Lázaro" />
+
+<!--<meta name="msapplication-config" content="/browserconfig.xml" /> -->
+<link rel="manifest" href="/manifest.webmanifest" />
