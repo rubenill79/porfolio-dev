@@ -14,7 +14,7 @@ export default defineConfig({
   integrations: [tailwind(), 
     sitemap({
       i18n: {
-        defaultLocale: "",
+        defaultLocale: "en",
         locales: {
           en: 'en-US', // The `defaultLocale` value must present in `locales` keys
           es: 'es-ES'
