@@ -16,7 +16,7 @@ export default defineConfig({
       i18n: {
         defaultLocale: "en",
         locales: {
-          en: 'en-US', // The `defaultLocale` value must present in `locales` keys
+          en: 'en-US',
           es: 'es-ES'
         }
       }
