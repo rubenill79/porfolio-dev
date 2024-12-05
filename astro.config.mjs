@@ -11,7 +11,13 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   output: "server",
   site: 'https://rubenlazaro-dev.vercel.app',
-  integrations: [tailwind(), 
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
+  integrations: [
+    tailwind(),
     sitemap({
       i18n: {
         defaultLocale: "en",
@@ -20,16 +26,13 @@ export default defineConfig({
           es: 'es-ES'
         }
       }
-    },
-  )],
-
+    })
+  ],
   i18n: {
     defaultLocale: "en",
     locales: ["es", "en"],
     routing: {
       prefixDefaultLocale: true
-   }
+    }
   },
-
-  adapter: vercel()
 });
